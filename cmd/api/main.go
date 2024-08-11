@@ -17,7 +17,7 @@ func main() {
 	if err != nil {
 		logger.Fatal("Could not load config", err)
 	}
-
+	gin.SetMode(gin.ReleaseMode)
 	router := gin.New()
 
 	// Attach middleware
@@ -25,7 +25,6 @@ func main() {
 	router.Use(gin.Recovery())
 
 	// Set Gin to release mode
-	gin.SetMode(gin.ReleaseMode)
 
 	// Initialize routes
 	routes.InitializeRoutes(router)
